@@ -1,5 +1,5 @@
-const { Actor } = require('apify');
-const { PlaywrightCrawler } = require('crawlee');
+import { Actor } from 'apify';
+import { PlaywrightCrawler } from 'crawlee';
 
 Actor.main(async () => {
     // Get criteria (can be passed in as INPUT)

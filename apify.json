@@ -1,8 +1,5 @@
 {
-	"name": "trademe-scraper",
-	"version": "0.0",
-	"buildTag": "latest",
-	"env": null,
-	"template": "hello_world",
-  	"main": "src/main.js"
+  "main": "src/main.js",
+  "version": "0.0.1",
+  "dockerImage": "apify/actor-node-playwright-chrome:latest"
 }

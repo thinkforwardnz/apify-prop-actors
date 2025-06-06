@@ -4,5 +4,5 @@
 	"buildTag": "latest",
 	"env": null,
 	"template": "hello_world",
-  "main": "src/main.js"
+  	"main": "src/main.js"
 }

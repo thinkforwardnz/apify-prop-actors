@@ -13,6 +13,6 @@
     "start": "node ./src/main.js",
     "test": "echo \"No tests yet\" && exit 1"
   },
-  "author": "Your Name",
+  "author": "Rob Bullen",
   "license": "ISC"
 }

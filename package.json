@@ -1,18 +1,18 @@
 {
     "name": "js-scrape-single-page",
     "version": "0.0.1",
-    "description": "This is an example of an Apify Actor.",
+    "description": "Trade Me property flipping scraper actor.",
     "engines": {
         "node": ">=18.0.0"
     },
     "dependencies": {
-        "apify": "^3.2.6",
-        "axios": "^1.5.0",
-        "cheerio": "^1.0.0-rc.12"
+        "apify": "^3.4.2",
+        "crawlee": "^3.13.4",
+        "playwright": "^1.42.1"
     },
     "scripts": {
         "start": "node ./src/main.js",
-        "test": "echo \"Error: oops, the Actor has no tests yet, sad!\" && exit 1"
+        "test": "echo \"No tests yet\" && exit 1"
     },
     "author": "It's not you it's me",
     "license": "ISC"

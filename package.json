@@ -1,7 +1,6 @@
 {
     "name": "js-scrape-single-page",
     "version": "0.0.1",
-    "type": "module",
     "description": "This is an example of an Apify Actor.",
     "engines": {
         "node": ">=18.0.0"

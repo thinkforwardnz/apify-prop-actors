@@ -2,19 +2,26 @@ const { Actor } = require('apify');
 const { PlaywrightCrawler, Dataset } = require('crawlee');
 
 Actor.main(async () => {
+    const input = await Actor.getInput() || {};
     const {
+        url: inputUrl,
         region, suburb, keywords, bedroomsMin, bedroomsMax, priceMin, priceMax
-    } = await Actor.getInput() || {};
+    } = input;
 
-    const baseUrl = `https://www.trademe.co.nz/a/property/residential/sale/${region}/search`;
-    let params = [];
-    if (keywords && keywords.length) params.push(`search_string=${encodeURIComponent(keywords.join(' '))}`);
-    if (bedroomsMin) params.push(`bedrooms_min=${bedroomsMin}`);
-    if (bedroomsMax) params.push(`bedrooms_max=${bedroomsMax}`);
-    if (priceMin) params.push(`price_min=${priceMin}`);
-    if (priceMax) params.push(`price_max=${priceMax}`);
-    if (suburb) params.push(`suburb=${encodeURIComponent(suburb)}`);
-    const url = params.length ? `${baseUrl}?${params.join('&')}` : baseUrl;
+    let url;
+    if (inputUrl) {
+        url = inputUrl;
+    } else {
+        const baseUrl = `https://www.trademe.co.nz/a/property/residential/sale/${region}/search`;
+        let params = [];
+        if (keywords && keywords.length) params.push(`search_string=${encodeURIComponent(keywords.join(' '))}`);
+        if (bedroomsMin) params.push(`bedrooms_min=${bedroomsMin}`);
+        if (bedroomsMax) params.push(`bedrooms_max=${bedroomsMax}`);
+        if (priceMin) params.push(`price_min=${priceMin}`);
+        if (priceMax) params.push(`price_max=${priceMax}`);
+        if (suburb) params.push(`suburb=${encodeURIComponent(suburb)}`);
+        url = params.length ? `${baseUrl}?${params.join('&')}` : baseUrl;
+    }
 
     // The PlaywrightCrawler will handle two types of pages:
     // - The search results page (enqueue all listings and next page)
